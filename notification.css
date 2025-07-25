@@ -1,0 +1,291 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: #fff;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 15px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 30px;
+}
+
+.logo img {
+  width: 28px;
+  height: auto;
+}
+
+
+.nav-links {
+  list-style: none;
+  flex-grow: 1;
+}
+
+.nav-links li {
+  padding: 12px;
+  margin-bottom: 10px;
+  color: #444;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s;
+}
+
+.nav-links li:hover,
+.nav-links .active {
+  background-color: #f0f4ff;
+  color: #3a5bff;
+  font-weight: 500;
+}
+
+.booking-toggle {
+  justify-content: space-between;
+}
+
+.arrow {
+  margin-left: auto;
+}
+
+.booking-submenu {
+  list-style: none;
+  padding-left: 35px;
+  display: none;
+  flex-direction: column;
+}
+
+.booking-submenu li {
+  padding: 8px 0;
+  margin-bottom: 6px;
+  color: #666;
+  cursor: pointer;
+}
+
+.booking-submenu li:hover {
+  color: #3a5bff;
+}
+
+.booking-submenu.show {
+  display: flex;
+}
+
+.logout {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+}
+
+.logout button {
+  width: 100%;
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.logout button:hover {
+  background-color: #d32f2f;
+}
+
+.main-content {
+    flex-grow: 1;
+    background-color: #f9f9f9;
+    padding: 0; /* Padding is handled by .content-area */
+    display: flex;
+    flex-direction: column;
+    /* No margin-left here as body display:flex handles layout */
+}
+
+/* Top Header Bar (Consistent across pages) */
+.top-header {
+    background-color: #fff;
+    padding: 15px 30px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    min-height: 60px;
+}
+
+.top-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+    font-weight: 600;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-employee {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-employee input {
+    padding: 8px 15px 8px 35px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9em;
+    width: 250px;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.search-employee input::placeholder {
+    color: #999;
+}
+
+.search-employee .bi-search {
+    position: absolute;
+    left: 10px;
+    color: #aaa;
+    font-size: 1.1em;
+}
+
+.notification-bell {
+    font-size: 1.3em;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.notification-bell:hover {
+    color: #007bff;
+}
+
+.admin-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.admin-section .admin-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #d1e7dd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #28a745;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.admin-section span {
+    font-weight: 500;
+    color: #333;
+}
+
+/* Content Area - Specific padding for general content */
+.content-area {
+    padding: 30px 40px; /* This handles the padding for the main content area */
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* ------------------------------------------- */
+/* Notification Page Specific Styles           */
+/* ------------------------------------------- */
+
+.notification-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes "Push Notification" button to the right */
+    margin-bottom: 25px; /* Space below the buttons */
+}
+
+.notification-controls .notification-filter-btn {
+    padding: 8px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #555;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.notification-controls .notification-filter-btn.active {
+    background-color: #e0e0e0; /* A bit darker background for the active "All" button */
+    border-color: #ccc;
+    color: #333;
+}
+
+.notification-controls .notification-filter-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.notification-controls .push-notification-btn {
+    padding: 10px 20px;
+    background-color: #3a5bff; /* Blue color for the action button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95em;
+    transition: background-color 0.3s;
+}
+
+.notification-controls .push-notification-btn:hover {
+    background-color: #2e4dd4; /* Darker blue on hover */
+}
+
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between each notification item */
+}
+
+.notification-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07); /* Subtle shadow for each item */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.notification-item .notification-text {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 10px; /* Space between the "Notification!" text and the detail line */
+}
+
+.notification-item .notification-detail-line {
+    width: 60%; /* Shorter line length as seen in the mockup */
+    height: 8px; /* Height of the grey placeholder line */
+    background-color: #eee; /* Light grey color for the line */
+    border-radius: 4px; /* Rounded ends for the line */
+}
