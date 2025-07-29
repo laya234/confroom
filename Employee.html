@@ -1,0 +1,161 @@
+You said:
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Dashboard</title>
+  <link rel="stylesheet" href="Employee.css">
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <img src="r1.jpg" alt="Logo">
+      <span><strong>Workspace</strong></span>
+    </div>
+
+    <ul class="nav-links">
+      <li class="active"><i class="bi bi-speedometer2 icon"></i> Dashboard</li>
+      <li><i class="bi bi-person icon"></i> Employee</li>
+
+      <li class="booking-toggle" onclick="toggleBooking()">
+        <i class="bi bi-building icon"></i> Booking <span class="arrow" id="arrow">▾</span>
+      </li>
+
+      <ul class="booking-submenu" id="bookingSubmenu">
+        <li><i class="bi bi-door-open icon"></i> Room Bookings</li>
+        <li><i class="bi bi-laptop icon"></i> Desk Bookings</li>
+        <li><i class="bi bi-journal-check icon"></i> Kiran </li>
+      </ul>
+
+      <li><i class="bi bi-calendar-event icon"></i> Calendar</li>
+      <li><i class="bi bi-ticket-perforated icon"></i> Events</li>
+      <li><i class="bi bi-bell icon"></i> Notification</li>
+      <li><i class="bi bi-gear icon"></i> Manage</li>
+    </ul>
+
+    <div class="logout">
+      <button><i class="bi bi-box-arrow-right"></i> Logout</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-white fixed-top shadow-sm ps-4 d-flex align-items-center"
+      style="margin-left:260px;">
+      <span class="navbar-brand mb-0">Employee Details</span>
+      <form class="ms-auto me-4 d-flex align-items-center" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+        <button class="btn btn-outline-secondary btn-sm" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+      <div class="d-flex align-items-center">
+        <img src="https://i.pravatar.cc/40" class="rounded-circle me-2" alt="Admin">
+
+        <span class="me-4"><strong>HR Admin</strong></span>
+      </div>
+    </nav>
+
+    <!-- Employee Cards -->
+    <div class="container-fluid mt-5 pt-4">
+      <div class="row g-4">
+        <!-- Example Card -->
+        <div class="col-md-3">
+          <div class="card p-3 shadow-sm employee-card">
+            <div class="text-center">
+              <img src="https://i.pravatar.cc/100?img=1" class="rounded-circle mb-2" alt="Employee">
+            </div>
+            <h6 class="text-center fw-semibold">ID - Name</h6>
+            <p class="text-center text-muted small mb-2">Role</p>
+            <p class="email"><i class="bi bi-envelope"></i> abc@gmail.com</p>
+            <p class="phone"><i class="bi bi-telephone"></i> 1234567890</p>
+          </div>
+        </div>
+        <!-- Repeat for 7 more cards -->
+        <div class="col-md-3">
+          <div class="card p-3 shadow-sm employee-card">
+            <div class="text-center"><img src="https://i.pravatar.cc/100?img=2" class="rounded-circle mb-2"></div>
+            <h6 class="text-center fw-semibold">ID - Name</h6>
+            <p class="text-center text-muted small mb-2">Role</p>
+            <p class="email"><i class="bi bi-envelope"></i> abc@gmail.com</p>
+            <p class="phone"><i class="bi bi-telephone"></i> 1234567890</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 shadow-sm employee-card">
+            <div class="text-center"><img src="https://i.pravatar.cc/100?img=3" class="rounded-circle mb-2"></div>
+            <h6 class="text-center fw-semibold">ID - Name</h6>
+            <p class="text-center text-muted small mb-2">Role</p>
+            <p class="email"><i class="bi bi-envelope"></i> abc@gmail.com</p>
+            <p class="phone"><i class="bi bi-telephone"></i> 1234567890</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 shadow-sm employee-card">
+            <div class="text-center"><img src="https://i.pravatar.cc/100?img=4" class="rounded-circle mb-2"></div>
+            <h6 class="text-center fw-semibold">ID - Name</h6>
+            <p class="text-center text-muted small mb-2">Role</p>
+            <p class="email"><i class="bi bi-envelope"></i> abc@gmail.com</p>
+            <p class="phone"><i class="bi bi-telephone"></i> 1234567890</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 shadow-sm employee-card">
+            <div class="text-center"><img src="https://i.pravatar.cc/100?img=2" class="rounded-circle mb-2"></div>
+            <h6 class="text-center fw-semibold">ID - Name</h6>
+            <p class="text-center text-muted small mb-2">Role</p>
+            <p class="email"><i class="bi bi-envelope"></i> abc@gmail.com</p>
+            <p class="phone"><i class="bi bi-telephone"></i> 1234567890</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 shadow-sm employee-card">
+            <div class="text-center"><img src="https://i.pravatar.cc/100?img=3" class="rounded-circle mb-2"></div>
+            <h6 class="text-center fw-semibold">ID - Name</h6>
+            <p class="text-center text-muted small mb-2">Role</p>
+            <p class="email"><i class="bi bi-envelope"></i> abc@gmail.com</p>
+            <p class="phone"><i class="bi bi-telephone"></i> 1234567890</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 shadow-sm employee-card">
+            <div class="text-center"><img src="https://i.pravatar.cc/100?img=4" class="rounded-circle mb-2"></div>
+            <h6 class="text-center fw-semibold">ID - Name</h6>
+            <p class="text-center text-muted small mb-2">Role</p>
+            <p class="email"><i class="bi bi-envelope"></i> abc@gmail.com</p>
+            <p class="phone"><i class="bi bi-telephone"></i> 1234567890</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pagination -->
+      <div class="d-flex justify-content-center my-4">
+        <nav>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleBooking() {
+      const submenu = document.getElementById('bookingSubmenu');
+      const arrow = document.getElementById('arrow');
+      submenu.classList.toggle('show');
+      arrow.textContent = submenu.classList.contains('show') ? '▴' : '▾';
+    }
+  </script>
+</body>
+
+</html>

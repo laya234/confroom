@@ -1,0 +1,77 @@
+/* Reset default margins and paddings */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Remove Bootstrap container and row padding */
+.container-fluid, .row {
+    margin: 0;
+    padding: 0;
+}
+
+.left-section, .col-lg-6 {
+    padding: 0 !important;
+}
+
+/* Left Section */
+.left-section {
+    background-color: #eaf1f4; /* Green shade from reference */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333;
+}
+ 
+
+
+/* Quote text */
+.quote-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.highlight-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3b55f9;
+}
+
+/* Right section */
+.login-wrapper {
+    max-width: 400px;
+    width: 100%;
+    text-align: left;
+}
+
+.logo-img {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+button.btn {
+    background-color: #3b55f9;
+    border: none;
+}
+button.btn:hover {
+    background-color: #2f44c8;
+}
+
+/* Mobile adjustments */
+@media (max-width: 991px) {
+    .left-section {
+        display: none;
+    }
+    .login-wrapper {
+        margin: 0 auto;
+    }
+}
