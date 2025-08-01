@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Desk Bookings</title>
+  <link rel="stylesheet" href="stylemb.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .card-text {
+      font-size: 13px;
+      color: #555;
+    }
+    .navbar .navbar-brand {
+      font-size: 16px;
+    }
+    .navbar span {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar fixed-sidebar">
+    <div class="logo">
+      <img src="r1.jpg" alt="Logo">
+      <span><strong>Workspace</strong></span>
+    </div>
+    <ul class="nav-links">
+      <li class="active"><i class="bi bi-speedometer2 icon"></i> Dashboard</li>
+      <li><i class="bi bi-person icon"></i> Employee</li>
+      <li class="booking-toggle" onclick="toggleBooking()">
+        <i class="bi bi-building icon"></i> Booking <span class="arrow" id="arrow">▾</span>
+      </li>
+      <ul class="booking-submenu" id="bookingSubmenu">
+        <li><i class="bi bi-door-open icon"></i> Room Bookings</li>
+        <li><i class="bi bi-laptop icon"></i> Desk Bookings</li>
+        <li><i class="bi bi-journal-check icon"></i> Kiran</li>
+      </ul>
+      <li><i class="bi bi-calendar-event icon"></i> Calendar</li>
+      <li><i class="bi bi-ticket-perforated icon"></i> Events</li>
+      <li><i class="bi bi-bell icon"></i> Notification</li>
+      <li><i class="bi bi-gear icon"></i> Manage</li>
+    </ul>
+    <div class="logout">
+      <button><i class="bi bi-box-arrow-right"></i> Logout</button>
+    </div>
+  </div>
+
+  <!-- Main Area -->
+  <div class="main-area">
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-light bg-white fixed-top shadow-sm ps-4 d-flex align-items-center"
+        style="margin-left:260px;">
+        <span class="navbar-brand mb-0">Employee Details</span>
+        <form class="ms-auto me-4 d-flex align-items-center" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+          <button class="btn btn-outline-secondary btn-sm" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+
+      <div class="d-flex align-items-center">
+
+        <img src="https://i.pravatar.cc/40" class="rounded-circle me-2" alt="Admin">
+        <span class="me-4"><strong>HR Admin</strong></span>
+
+      </div>
+
+    </nav>
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="container mt-4">
+        <div class="d-flex justify-content-between mb-3">
+          <div><strong>Founding 12 Bookings</strong></div>
+          <div>
+            <select class="form-select d-inline-block w-auto me-2">
+              <option>Pune</option>
+              <option>Chennai</option>
+            </select>
+            <select class="form-select d-inline-block w-auto">
+              <option>Today</option>
+              <option>Tomorrow</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Booking Cards -->
+        <div class="card mb-3 p-3">
+          <div class="d-flex align-items-center">
+            <img src="https://i.pravatar.cc/60?img=1" class="rounded-circle me-3" alt="User">
+            <div>
+              <h6 class="mb-1">ID - Name</h6>
+              <p class="mb-1 text-muted">Role</p>
+              <small class="text-primary">Booking id </small>
+            </div>
+            <div class="ms-auto text-end">
+              <p class="mb-1"><i class="bi bi-geo-alt"></i> Location </p>
+              <p class="mb-1"><i class="bi bi-calendar3"></i> Date</p>
+              <p class="mb-0"><i class="bi bi-clock"></i> Time</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-3 p-3">
+          <div class="d-flex align-items-center">
+            <img src="https://i.pravatar.cc/60?img=1" class="rounded-circle me-3" alt="User">
+            <div>
+              <h6 class="mb-1">ID - Name</h6>
+              <p class="mb-1 text-muted">Role</p>
+              <small class="text-primary">Booking id </small>
+            </div>
+            <div class="ms-auto text-end">
+              <p class="mb-1"><i class="bi bi-geo-alt"></i> Location </p>
+              <p class="mb-1"><i class="bi bi-calendar3"></i> Date</p>
+              <p class="mb-0"><i class="bi bi-clock"></i> Time</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-3 p-3">
+          <div class="d-flex align-items-center">
+            <img src="https://i.pravatar.cc/60?img=1" class="rounded-circle me-3" alt="User">
+            <div>
+              <h6 class="mb-1">ID - Name</h6>
+              <p class="mb-1 text-muted">Role</p>
+              <small class="text-primary">Booking id </small>
+            </div>
+            <div class="ms-auto text-end">
+              <p class="mb-1"><i class="bi bi-geo-alt"></i> Location </p>
+              <p class="mb-1"><i class="bi bi-calendar3"></i> Date</p>
+              <p class="mb-0"><i class="bi bi-clock"></i> Time</p>
+            </div>
+          </div>
+        </div>
+
+                <div class="card mb-3 p-3">
+          <div class="d-flex align-items-center">
+            <img src="https://i.pravatar.cc/60?img=1" class="rounded-circle me-3" alt="User">
+            <div>
+              <h6 class="mb-1">ID - Name</h6>
+              <p class="mb-1 text-muted">Role</p>
+              <small class="text-primary">Booking id </small>
+            </div>
+            <div class="ms-auto text-end">
+              <p class="mb-1"><i class="bi bi-geo-alt"></i> Location </p>
+              <p class="mb-1"><i class="bi bi-calendar3"></i> Date</p>
+              <p class="mb-0"><i class="bi bi-clock"></i> Time</p>
+            </div>
+          </div>
+        </div>
+
+                <div class="card mb-3 p-3">
+          <div class="d-flex align-items-center">
+            <img src="https://i.pravatar.cc/60?img=1" class="rounded-circle me-3" alt="User">
+            <div>
+              <h6 class="mb-1">ID - Name</h6>
+              <p class="mb-1 text-muted">Role</p>
+              <small class="text-primary">Booking id </small>
+            </div>
+            <div class="ms-auto text-end">
+              <p class="mb-1"><i class="bi bi-geo-alt"></i> Location </p>
+              <p class="mb-1"><i class="bi bi-calendar3"></i> Date</p>
+              <p class="mb-0"><i class="bi bi-clock"></i> Time</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleBooking() {
+      const submenu = document.getElementById('bookingSubmenu');
+      const arrow = document.getElementById('arrow');
+      submenu.classList.toggle('show');
+      arrow.textContent = submenu.classList.contains('show') ? '▴' : '▾';
+    }
+  </script>
+</body>
+</html>
