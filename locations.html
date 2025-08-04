@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Manage - Workspace</title>
+  <title>Locations - Workspace</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
     * {
@@ -167,7 +167,6 @@
     .top-right i {
       font-size: 18px;
       cursor: pointer;
-      position: relative;
     }
 
     .top-right i:hover {
@@ -197,46 +196,131 @@
       width: calc(100% - 260px);
     }
 
-    .manage-grid {
+    .header {
       display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .manage-card {
-      background: #fff;
-      padding: 30px 40px;
-      width: 220px;
-      border-radius: 14px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-      display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      gap: 15px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
+      margin-bottom: 20px;
     }
 
-    .manage-card:hover {
-      transform: translateY(-4px);
+    .header h2 {
+      font-weight: 600;
+    }
+
+    .add-btn {
+      background: #4a6cf7;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .location-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .location-card:hover {
+      transform: scale(1.03);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
     }
 
-    .manage-card i {
-      font-size: 28px;
+    .location-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
     }
 
-    .manage-card.blue i {
+    .location-info {
+      padding: 15px;
+    }
+
+    .location-info h4 {
+      margin: 0 0 8px;
+    }
+
+    .location-info p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .edit-btn {
+      margin-top: 10px;
+      border: 1px solid #4a6cf7;
+      background: transparent;
       color: #4a6cf7;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
     }
 
-    .manage-card.red i {
-      color: #e53935;
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
     }
 
-    .manage-card span {
-      font-size: 16px;
-      font-weight: 500;
+    .modal-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      width: 500px;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+    }
+
+    .form-group {
+      display: flex;
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .form-group input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .modal-actions {
+      text-align: right;
+      margin-top: 15px;
+    }
+
+    .save-btn {
+      background: #4a6cf7;
+      color: #fff;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .close-icon {
+      float: right;
+      font-size: 18px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -248,8 +332,8 @@
       <span><strong>Workspace</strong></span>
     </div>
     <ul class="nav-links">
-      <li onclick="window.location.href='dashboard.html'"><i class="bi bi-speedometer2"></i> Dashboard</li>
-      <li onclick="window.location.href='employee.html'"><i class="bi bi-person"></i> Employee</li>
+      <li><i class="bi bi-speedometer2"></i> Dashboard</li>
+      <li><i class="bi bi-person"></i> Employee</li>
       <li class="booking-toggle" onclick="toggleBooking()">
         <i class="bi bi-building"></i> Booking <span class="arrow" id="arrow">▾</span>
       </li>
@@ -260,7 +344,7 @@
       </ul>
       <li><i class="bi bi-calendar-event"></i> Calendar</li>
       <li><i class="bi bi-ticket-perforated"></i> Events</li>
-      <li onclick="window.location.href='notifications.html'"><i class="bi bi-bell"></i> Notification</li>
+      <li><i class="bi bi-bell"></i> Notification</li>
       <li class="active"><i class="bi bi-gear"></i> Manage</li>
     </ul>
     <div class="logout">
@@ -271,7 +355,7 @@
   <!-- Top Navbar -->
   <div class="top-navbar">
     <div class="top-left">
-      <h2>Manage</h2>
+      <h2>Locations</h2>
     </div>
     <div class="top-right">
       <div class="search-bar">
@@ -285,17 +369,58 @@
       </div>
     </div>
   </div>
+  
 
   <!-- Main Content -->
   <div class="main-content">
-    <div class="manage-grid">
-      <div class="manage-card blue" onclick="window.location.href='locations.html'">
-        <i class="bi bi-geo-alt"></i>
-        <span>Locations</span>
+    <div class="header">
+      <h2>Locations</h2>
+      <button class="add-btn" id="addLocationBtn"><i class="bi bi-plus"></i> Add Location</button>
+    </div>
+
+    <div class="locations-grid" id="locationsGrid">
+      <div class="location-card">
+        <img src="https://static.ambitionbox.com/api/v2/photo/Vm5xemRGOUhWSFB2Wm11UkZaR1VkUT09" alt="Chennai">
+        <div class="location-info">
+          <h4>Chennai</h4>
+          <p>Tower A, Elcot SEZ, Chennai-600119</p>
+          <button class="edit-btn">Edit</button>
+        </div>
       </div>
-      <div class="manage-card red" onclick="window.location.href='conference.html'">
-        <i class="bi bi-people"></i>
-        <span>Conference Rooms</span>
+      <div class="location-card">
+        <img src="https://static.ambitionbox.com/api/v2/photo/QVp3RUJVUUFSZW5oWHYzU3FzcmhSQT09" alt="Coimbatore">
+        <div class="location-info">
+          <h4>Coimbatore</h4>
+          <p>IT Park, Villankurichi Rd, Coimbatore-641014</p>
+          <button class="edit-btn">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="addModal">
+    <div class="modal-content">
+      <span class="close-icon" id="closeIcon">&times;</span>
+      <h3>Add Location</h3>
+      <div class="form-group">
+        <input type="text" placeholder="Building Name">
+        <input type="text" placeholder="Street Address">
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="City">
+        <input type="text" placeholder="State">
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Pincode">
+        <input type="text" placeholder="Country">
+      </div>
+      <div class="form-group">
+        <input type="number" placeholder="Conference Rooms">
+        <input type="number" placeholder="Desks">
+      </div>
+      <div class="modal-actions">
+        <button class="save-btn">Save</button>
       </div>
     </div>
   </div>
@@ -307,6 +432,46 @@
       submenu.classList.toggle('show');
       arrow.textContent = submenu.classList.contains('show') ? '▴' : '▾';
     }
+
+    const addBtn = document.getElementById("addLocationBtn");
+    const modal = document.getElementById("addModal");
+    const closeIcon = document.getElementById("closeIcon");
+    const locationsGrid = document.getElementById("locationsGrid");
+
+    addBtn.onclick = (e) => { 
+      e.preventDefault(); 
+      modal.style.display = "flex"; 
+    };
+
+    closeIcon.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
+
+    // ✅ ADD LOCATION FUNCTIONALITY
+    document.querySelector(".save-btn").addEventListener("click", () => {
+      const inputs = modal.querySelectorAll("input");
+      const [building, street, city, state, pincode, country, rooms, desks] = Array.from(inputs).map(i => i.value.trim());
+
+      if (building && street && city) {
+        const newCard = document.createElement("div");
+        newCard.classList.add("location-card");
+        newCard.innerHTML = `
+          <img src="https://via.placeholder.com/400x200" alt="${city}">
+          <div class="location-info">
+            <h4>${city}</h4>
+            <p>${building}, ${street}</p>
+            <button class="edit-btn">Edit</button>
+          </div>`;
+        locationsGrid.appendChild(newCard);
+
+        // Clear inputs after adding
+        inputs.forEach(input => input.value = "");
+
+        // Close modal
+        modal.style.display = "none";
+      } else {
+        alert("Please fill in at least Building Name, Street, and City.");
+      }
+    });
   </script>
 </body>
 </html>
