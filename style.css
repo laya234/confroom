@@ -208,60 +208,42 @@ body {
     flex-grow: 1;
     overflow-y: auto;
 }
+ .events-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 15px 20px;
+ }
 
-.find-events-section {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 30px;
-}
+ .left-section {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+ }
 
-.find-events-section .search-bar {
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    max-width: 400px;
-}
+ .left-section h4 {
+   margin: 0;
+   font-weight: 500;
+ }
 
-.find-events-section .search-bar input {
-    padding: 10px 15px 10px 40px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 0.95em;
-    width: 100%;
-    background-color: #fff;
-    color: #333;
-}
+ .dropdowns {
+   display: flex;
+   gap: 10px;
+ }
 
-.find-events-section .search-bar input::placeholder {
-    color: #999;
-}
+ .btn-add-event {
+   background-color: #4a6ef5;
+   color: white;
+   border: none;
+   padding: 8px 20px;
+   border-radius: 5px;
+   transition: 0.3s;
+ }
 
-.find-events-section .search-bar .bi-search {
-    position: absolute;
-    left: 15px;
-    color: #aaa;
-    font-size: 1.2em;
-}
-
-.find-events-section .date-button {
-    padding: 10px 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.95em;
-    color: #555;
-    transition: background-color 0.2s, border-color 0.2s;
-    font-weight: 500;
-}
-
-.find-events-section .date-button:hover {
-    background-color: #f0f0f0;
-    border-color: #bbb;
-}
-
+ .btn-add-event:hover {
+   background-color: #3a58d0;
+ }
+ 
 .event-cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted min width */
